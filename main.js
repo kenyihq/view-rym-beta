@@ -18,7 +18,8 @@ const getDataTravel = () => {
     // let origin = document.getElementById('origin').value;
     let origin = document.getElementById('get-origin').value;
     let destination = document.getElementById('get-destination').value;
-    let date = document.getElementById('date').value;
+    let date = document.getElementById('get-date').value;
+    let price = document.getElementById('get-price').value;
 
     let printProposal = '*PROPUESTA* 📝\n\n';
     printProposal += '*-VUELO DE IDA  🛫*\n';
@@ -29,17 +30,36 @@ const getDataTravel = () => {
     let totalPrice = `_✔️ Precio de pasaje 🎫, tasas 💰 y mochila 🎒 a *85 soles*._\n\n`
 
     totalPrice += `_PRECIO EN DÓLARES 💱_\n`
-    totalPrice += `_Precio por pasajero: *$21 dólares*_\n`
-    totalPrice += `_💲Tipo de cambio referencial: *4.03*_\n\n`
+    totalPrice += `_Precio por pasajero: *$${price} dólares*_\n`
+    totalPrice += `_💲Tipo de cambio referencial: *4.03*_\n`
 
-    let dangerInfo = '_*Propuesta válida por 15 minutos trascurrido éste tiempo, vuelva a pedir una nueva propuesta_'
+    let dangerInfo = '_*Propuesta válida por 15 minutos trascurrido éste tiempo, vuelva a pedir una nueva propuesta_\n'
 
 
     let sale = `${printProposal}${totalPrice}${dangerInfo}`;
 
-    document.getElementById('printResult').innerHTML = sale;
+    if (!origin || !destination || !date || !price) {
+        alert('Por favor, complete todos los campos');    
+    } else {
+        document.getElementById('printResult').innerHTML = sale;
+    }
+
 }
 
+copiador.addEventListener("click", function(event) {   
+  // el método select es utilizado para seleccionar el contenido del campo de texto
+    printResult.select();
+ try {
+      // el método document.execCommand("copy") copia el texto seleccionado al portapapeles
+      let exito = document.execCommand("copy");// devuelve true o false
+      let msg = exito ? "\351xito" : "error";
+      console.log(msg);
+      alert("Copiado al portapapeles!")
+} catch (error) {
+      let err = error;
+      console.log("No fue posible copiar el texto seleccionado!");
+    }
+  }); 
 
 getCity();
 
