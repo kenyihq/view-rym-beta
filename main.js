@@ -22,21 +22,20 @@ const getDataTravel = () => {
     let timeFlight = document.getElementById('get-time').value;
     
     // Date parse
-    let mounts = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    let days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+    let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    let days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
     let formatDate = new Date(date);
     let day = days[formatDate.getDay()];
-    date = `${day} ${formatDate.getDate()+1} de ${mounts[formatDate.getMonth()]}`;
-
-    // Hour parse
-    let hour = formatDate.getHours();
-    let minutes = formatDate.getMinutes();
-    let timeFlights = `${hour}:${minutes}`;
-
-    console.log(hour, minutes);
-    
-
-
+    let month = months[formatDate.getMonth()];
+    date = `${day} ${formatDate.getDate()+1} de ${month}`;
+    timeFlight = String(timeFlight);
+    let hour = timeFlight[0] + timeFlight[1];
+    let minute = timeFlight[3] + timeFlight[4];
+    if (Number(hour) > 12){
+      timeFlight = `0${hour-12}:${minute}pm`;
+    }else {
+      timeFlight = `${hour}:${minute}am`;
+    }
 
     let price = document.getElementById('get-price').value;
 
