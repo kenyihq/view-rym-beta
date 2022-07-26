@@ -19,13 +19,32 @@ const getDataTravel = () => {
     let origin = document.getElementById('get-origin').value;
     let destination = document.getElementById('get-destination').value;
     let date = document.getElementById('get-date').value;
+    let timeFlight = document.getElementById('get-time').value;
+    
+    // Date parse
+    let mounts = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    let days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+    let formatDate = new Date(date);
+    let day = days[formatDate.getDay()];
+    date = `${day} ${formatDate.getDate()+1} de ${mounts[formatDate.getMonth()]}`;
+
+    // Hour parse
+    let hour = formatDate.getHours();
+    let minutes = formatDate.getMinutes();
+    let timeFlights = `${hour}:${minutes}`;
+
+    console.log(hour, minutes);
+    
+
+
+
     let price = document.getElementById('get-price').value;
 
     let printProposal = '*PROPUESTA* 📝\n\n';
     printProposal += '*-VUELO DE IDA  🛫*\n';
     printProposal += `*_${origin} - ${destination}_*\n`;
-    printProposal += `*_Martes 26 de Julio_*\n`
-    printProposal += `*_Hora de salida: 12:20pm_*\n\n`
+    printProposal += `*_${date}_*\n`
+    printProposal += `*_Hora de salida: ${timeFlight}_*\n\n`
 
     let totalPrice = `_✔️ Precio de pasaje 🎫, tasas 💰 y mochila 🎒 a *85 soles*._\n\n`
 
