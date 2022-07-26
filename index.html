@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+<body>
+    <main class="container">
+
+        <h1>Rumbos y mundos</h1>
+
+        <div class="one-way">
+            <div class="form-group">
+                <label for="">Ciudad y/o aeropuerto de origen:</label>
+                <input type="text" name="nombre" class="form-control" placeholder="Igrese la ciudad y/o aeropuerto de origen">
+            </div>
+            <div class="form-group">
+                <label for="">Ciudad y/o aeropuerto de destino</label>
+                <input type="text" name="nombre" class="form-control" placeholder="Igrese la ciudad y/o aeropuerto de destino">
+            </div>
+            <div class="form-group">
+                <label for="">Fecha de ida</label>
+                <input type="date" name="nombre" class="form-control" placeholder="Ingrese la fecha de viaje de ida">
+            </div>
+            <div class="form-group">
+                <label for="">Nesecita vuelo de vuelta</label>
+                <input type="checkbox" name="vuelta" class="form-control">
+            </div>
+        </div>
+        <div class="roundtrip">
+            <div class="form-group">
+                <label for="">Fecha de vuelta</label>
+                <input type="date" name="nombre" class="form-control" placeholder="Ingrese la fecha de viaje de vuelta">
+            </div>
+
+        </div>
+            <div class="form-group">
+                <label for="">Número de pasajeros</label>
+                <input type="number" name="nombre" class="form-control" placeholder="Ingrese el número de pasajeros">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar</button>
+    </main>
+    
+</body>
+</html>
