@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador</title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./main.js"></script>
 </head>
 <body>
     <main class="container">
 
-        <h1>Rumbos y mundos</h1>
+        <h1>RUMBOS Y MUNDOS</h1>
 
         <div class="one-way">
             <div class="form-group">
                 <label for="">Ciudad y/o aeropuerto de origen:</label>
-                <input type="text" name="nombre" class="form-control" placeholder="Igrese la ciudad y/o aeropuerto de origen">
+                <input type="text" id="origin" name="nombre" class="form-control" placeholder="Igrese la ciudad y/o aeropuerto de origen">
             </div>
             <div class="form-group">
                 <label for="">Ciudad y/o aeropuerto de destino</label>
@@ -42,7 +44,12 @@
                 <input type="number" name="nombre" class="form-control" placeholder="Ingrese el número de pasajeros">
             </div>
             
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary" onclick="getDataTravel()">Enviar</button>
+
+            <div class="result">
+                <textarea name="" id="printResult" cols="30" rows="10"></textarea>
+                <a href="" role="button" class="outline" id="copy">Copiar</a>
+            </div>
     </main>
     
 </body>
