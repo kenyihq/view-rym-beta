@@ -72,12 +72,28 @@ function getCity (){
     document.getElementById('destination').innerHTML = options;
 }
 
+function viewReturn(){
+    let returnDiv = document.getElementById('return');
+    if (returnDiv.style.display === 'none') {
+        returnDiv.style.display = 'block';
+    } else {
+        returnDiv.style.display = 'none';
+    }
+    
+}
 
 const getDataTravel = () => {
     let newFlight = new Flight();
 
     const quote = document.getElementById('get-return').checked;
     const exchange = 3.99;
+    
+    
+    // if (quote){
+    //     // document.getElementById('return').style.visibility = 'hidden';
+    //     viewRetur();
+    // }
+
 
 
     let newQuote = '';
