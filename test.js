@@ -24,26 +24,6 @@ class Flight{
 
 let newFlight = new Flight();
 
-function newFlightOW(origin, destination, hour, date){
-    // let printNewFlight = newFlight.printTitle()[0];
-    // printNewFlight += newFlight.printTitle()[1];
-    let printNewFlight = newFlight.infoFlight(origin, destination, hour, date);
-
-    return printNewFlight;
-}
-
-function newFlightRW(origin, destination, hour, date){
-
-    let rhour = '02:30pm';
-    let rdate = 'Viernes 12 de Agosto';
-    
-    let printNewFlight = newFlightOW(origin, destination, hour, date);
-    printNewFlight += newFlight.printTitle()[2]; 
-    printNewFlight += newFlight.infoFlight(destination, origin, rhour, rdate);
-    
-    return printNewFlight;
-}
-
 const quote = 'One Way';
 const option = 'Onse Way';
 
