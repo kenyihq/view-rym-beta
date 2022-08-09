@@ -39,23 +39,42 @@ let destination = 'Puerto Vallarta';
 let hour = '10:00am';
 let date = 'Viernes 12 de Agosto';
 
-if (quote == option) {
-    newQuote = printT;
-    newQuote += printOW;
-    newQuote += newFlight.infoFlight(origin, destination, hour, date);
+switch (quote) {
+    case option:
+        newQuote = printT;
+        newQuote += printOW;
+        newQuote += newFlight.infoFlight(origin, destination, hour, date);
+        break;
+    default:
+        // Additonal variables
+        let rhour = '12:00pm';
+        let rdate = 'Viernes 13 de Agosto';
+        
+        newQuote = printT;
+        newQuote += printOW;
+        newQuote += newFlight.infoFlight(origin, destination, hour, date);
+        newQuote += printRT;
+        newQuote += newFlight.infoFlight(destination, origin, rhour, rdate);
+        break;
 }
-else {
 
-    // Additional variables
-    let rhour = '03:30pm';
-    let rdate = 'Sábado 13 de Agosto';
+// if (quote == option) {
+//     newQuote = printT;
+//     newQuote += printOW;
+//     newQuote += newFlight.infoFlight(origin, destination, hour, date);
+// }
+// else {
+
+//     // Additional variables
+//     let rhour = '03:30pm';
+//     let rdate = 'Sábado 13 de Agosto';
     
-    newQuote = printT;
-    newQuote += printOW;
-    newQuote += newFlight.infoFlight(origin, destination, hour, date);
-    newQuote += printRT;
-    newQuote += newFlight.infoFlight(destination, origin, rhour, rdate);
-}
+//     newQuote = printT;
+//     newQuote += printOW;
+//     newQuote += newFlight.infoFlight(origin, destination, hour, date);
+//     newQuote += printRT;
+//     newQuote += newFlight.infoFlight(destination, origin, rhour, rdate);
+// }
 
 console.log(newQuote);
 
