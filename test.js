@@ -51,7 +51,7 @@ class Flight{
             
         }
 
-        printPrice += `\n\n*Propuesta válida por 15 minutos trascurrido éste tiempo, vuelva a pedir una nueva propuesta.`;
+        printPrice += `\n\n_*Propuesta válida por 15 minutos trascurrido éste tiempo, vuelva a pedir una nueva propuesta._`;
 
         return printPrice;
     }
@@ -76,8 +76,7 @@ function getCity (){
 const getDataTravel = () => {
     let newFlight = new Flight();
 
-    const quote = 'One Way';
-    const option = 'One Way';
+    const quote = document.getElementById('get-return').checked;
     const exchange = 3.99;
 
 
@@ -91,7 +90,7 @@ const getDataTravel = () => {
 
     let webPrice = Number(document.getElementById('get-price').value);
     let passengers = Number(document.getElementById('get-np').value);
-    let bag = true;
+    let bag = document.getElementById('get-bag').checked;
     
     // Date parse
     let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -110,7 +109,7 @@ const getDataTravel = () => {
     }
 
     switch (quote) {
-    case option:
+    case false:
         newQuote = newFlight.printTitle()[0];
         newQuote += newFlight.printTitle()[1];
         newQuote += newFlight.infoFlight(origin, destination, hour, date);
@@ -118,8 +117,8 @@ const getDataTravel = () => {
         break;
     default:
         // Additonal variables
-        let rhour = '12:00pm';
-        let rdate = 'Viernes 13 de Agosto';
+        let rhour = document.getElementById('get-return-time').value;
+        let rdate = document.getElementById('get-return-date').value;
 
         newQuote = newFlight.printTitle()[0];
         newQuote += newFlight.printTitle()[1];
@@ -130,7 +129,14 @@ const getDataTravel = () => {
         break;
 }
 
-document.getElementById('printResult').innerHTML = newQuote;    
+if (!origin == '' && !destination == '' && !date == '' && !hour == '' && !webPrice == '' && !passengers == '') {
+    document.getElementById('printResult').innerHTML = newQuote;
+    // document.getElementById('printResult').innerHTML = newQuote;
+} else {
+    alert('Por favor, complete todos los campos.');
+}
+
+// document.getElementById('printResult').innerHTML = newQuote;    
 
     // if (!origin || !destination || !date || !price) {
     //     alert('Por favor, complete todos los campos');    

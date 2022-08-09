@@ -33,28 +33,37 @@
                 <label for="">Hora</label>
                 <input type="time" id="get-time" name="nombre" class="form-control" placeholder="Ingrese la hora de viaje">
             </div>
-            <div class="form-group">
-                <label for="">Nesecita vuelo de vuelta</label>
-                <input type="checkbox" name="vuelta" class="form-control">
-            </div>
+        </div>
+        <div class="form-group">
+            <label for="">¿Nesecita vuelo de vuelta?</label>
+            <input type="checkbox" id="get-return" name="bag" class="form-control">
         </div>
         <div class="roundtrip">
             <div class="form-group">
                 <label for="">Fecha de vuelta</label>
-                <input type="date" name="nombre" class="form-control" placeholder="Ingrese la fecha de viaje de vuelta">
+                <input type="date" id="get-return-date" name="nombre" class="form-control" placeholder="Ingrese la fecha de viaje de vuelta">
             </div>
-
+            <div class="form-group">
+                <label for="">Hora</label>
+                <input type="time" id="get-return-time" name="nombre" class="form-control" placeholder="Ingrese la hora de viaje">
+            </div>
+            
         </div>
         <div class="form-group">
             <label for="">Número de pasajeros</label>
             <input type="number" id="get-np" name="nombre" class="form-control" placeholder="Ingrese el número de pasajeros">
         </div>
         <div class="form-group">
-            <label for="">Precio</label>
+            <label for="">Precio (en dólares)</label>
             <input type="number" id="get-price" name="nombre" class="form-control" placeholder="Ingrese el precio en dólares">
         </div>
         
-        <button type="submit" onclick="getDataTravel()">Enviar</button>
+        <div class="form-group">
+            <label for="">¿Nesecita equipaje?</label>
+            <input type="checkbox" id="get-bag" name="bag" class="form-control">
+        </div>
+
+        <button onclick="getDataTravel()">Enviar</button>
 
         <div class="result">
             <textarea name="" id="printResult" cols="30" rows="10"></textarea>
