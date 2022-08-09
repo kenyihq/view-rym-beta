@@ -1,3 +1,15 @@
+class Flight{
+    constructor(typeFlight, origin, destination, departure, arrival, price){
+        this.typeFlight = typeFlight;
+        this.origin = origin;
+        this.destination = destination;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.price = price;
+    }
+
+}
+    
 
 function getCity(){
 
@@ -12,7 +24,7 @@ function getCity(){
     document.getElementById('origin').innerHTML = options;
     document.getElementById('destination').innerHTML = options;
 }
-    
+
 
 const getDataTravel = () => {
     // let origin = document.getElementById('origin').value;
