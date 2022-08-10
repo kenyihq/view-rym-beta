@@ -56,6 +56,40 @@ class Flight{
         return printPrice;
     }
 
+    printFormatDate(dateFormat, hourFormat){
+        let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        let days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+        
+        // Parse date
+        let formatDate = new Date(dateFormat);
+        let day = days[formatDate.getDay()];
+        let month = months[formatDate.getMonth()];
+        let date = `${day} ${formatDate.getDate()+1} de ${month}`;
+        
+        // Parse hour
+        let hour = String(hourFormat);
+        let hours = hour[0] + hour[1];
+        let minute = hour[3] + hour[4];
+
+        if (Number(hours) > 12){
+            if (hours == 22 || hours == 23){
+                 hour = `${hours-12}:${minute}pm`;
+            } else {
+                hour = `0${hours-12}:${minute}pm`;            
+            }
+         } else {
+            if (hours == 12){
+                hour = `${hours}:${minute}pm`;
+            } else {
+            hour = `${hours}:${minute}am`;
+            }
+        }
+
+        let result = [date, hour];
+
+        return result;
+    }
+
 }
 
 function getCity (){
@@ -72,57 +106,25 @@ function getCity (){
     document.getElementById('destination').innerHTML = options;
 }
 
-function viewReturn(){
-    let returnDiv = document.getElementById('return');
-    if (returnDiv.style.display === 'none') {
-        returnDiv.style.display = 'block';
-    } else {
-        returnDiv.style.display = 'none';
-    }
-    
-}
-
 const getDataTravel = () => {
     let newFlight = new Flight();
-
+    
     const quote = document.getElementById('get-return').checked;
-    const exchange = 3.99;
-    
-    
-    // if (quote){
-    //     // document.getElementById('return').style.visibility = 'hidden';
-    //     viewRetur();
-    // }
-
-
-
+    const exchange = document.getElementById('get-exchange').value;
     let newQuote = '';
     
-    // let origin = document.getElementById('origin').value;
     let origin = document.getElementById('get-origin').value;
     let destination = document.getElementById('get-destination').value;
     let date = document.getElementById('get-date').value;
     let hour = document.getElementById('get-time').value;
-
+    
     let webPrice = Number(document.getElementById('get-price').value);
     let passengers = Number(document.getElementById('get-np').value);
     let bag = document.getElementById('get-bag').checked;
     
-    // Date parse
-    let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    let days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-    let formatDate = new Date(date);
-    let day = days[formatDate.getDay()];
-    let month = months[formatDate.getMonth()];
-    date = `${day} ${formatDate.getDate()+1} de ${month}`;
-    hour = String(hour);
-    let hours = hour[0] + hour[1];
-    let minute = hour[3] + hour[4];
-    if (Number(hours) > 12){
-      hour = `0${hours-12}:${minute}pm`;
-    }else {
-      hour = `${hours}:${minute}am`;
-    }
+    let newDate = newFlight.printFormatDate(date, hour);
+    date = newDate[0];
+    hour = newDate[1];
 
     switch (quote) {
     case false:
@@ -135,6 +137,9 @@ const getDataTravel = () => {
         // Additonal variables
         let rhour = document.getElementById('get-return-time').value;
         let rdate = document.getElementById('get-return-date').value;
+        newDate = newFlight.printFormatDate(rdate, rhour);
+        rdate = newDate[0];
+        rhour = newDate[1];
 
         newQuote = newFlight.printTitle()[0];
         newQuote += newFlight.printTitle()[1];
@@ -143,22 +148,14 @@ const getDataTravel = () => {
         newQuote += newFlight.infoFlight(destination, origin, rhour, rdate);
         newQuote += newFlight.price(passengers, bag, webPrice, exchange);
         break;
-}
+    }
 
-if (!origin == '' && !destination == '' && !date == '' && !hour == '' && !webPrice == '' && !passengers == '') {
-    document.getElementById('printResult').innerHTML = newQuote;
-    // document.getElementById('printResult').innerHTML = newQuote;
-} else {
-    alert('Por favor, complete todos los campos.');
-}
-
-// document.getElementById('printResult').innerHTML = newQuote;    
-
-    // if (!origin || !destination || !date || !price) {
-    //     alert('Por favor, complete todos los campos');    
-    // } else {
-    //     document.getElementById('printResult').innerHTML = newQuote;
-    // }
+    if (!origin == '' && !destination == '' && !date == '' && !hour == '' && !webPrice == '' && !passengers == '') {
+        document.getElementById('printResult').innerHTML = newQuote;
+        // document.getElementById('printResult').innerHTML = newQuote;
+    } else {
+        alert('Por favor, complete todos los campos.');
+    }
 
 }
 

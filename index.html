@@ -27,41 +27,45 @@
             </div>
             <div class="form-group">
                 <label for="">Fecha de ida</label>
-                <input type="date" id="get-date" name="nombre" class="form-control" placeholder="Ingrese la fecha de viaje de ida">
+                <input type="date" id="get-date" class="form-control" placeholder="Ingrese la fecha de viaje de ida">
             </div>
             <div class="form-group">
                 <label for="">Hora</label>
-                <input type="time" id="get-time" name="nombre" class="form-control" placeholder="Ingrese la hora de viaje">
+                <input type="time" id="get-time" class="form-control" placeholder="Ingrese la hora de viaje de ida">
             </div>
         </div>
         <div class="form-group">
             <label for="">¿Nesecita vuelo de vuelta?</label>
-            <!-- <input type="checkbox" id="get-return" name="bag" class="form-control"> -->
-            <button onclick="viewReturn()">Vuelo de regreso</button>
+            <input type="checkbox" id="get-return" name="bag" class="form-control">
+            <!-- <button onclick="viewReturn()">Vuelo de regreso</button> -->
         </div>
         <div class="roundtrip" id="return">
             <div class="form-group">
                 <label for="">Fecha de vuelta</label>
-                <input type="date" id="get-return-date" name="nombre" class="form-control" placeholder="Ingrese la fecha de viaje de vuelta">
+                <input type="date" id="get-return-date" class="form-control" placeholder="Ingrese la fecha de viaje de vuelta">
             </div>
             <div class="form-group">
                 <label for="">Hora</label>
-                <input type="time" id="get-return-time" name="nombre" class="form-control" placeholder="Ingrese la hora de viaje">
+                <input type="time" id="get-return-time" class="form-control" placeholder="Ingrese la hora de viaje de vuelta">
             </div>
             
         </div>
         <div class="form-group">
             <label for="">Número de pasajeros</label>
-            <input type="number" id="get-np" name="nombre" class="form-control" placeholder="Ingrese el número de pasajeros">
+            <input type="number" id="get-np" class="form-control" placeholder="Ingrese el número de pasajeros">
         </div>
         <div class="form-group">
             <label for="">Precio (en dólares)</label>
-            <input type="number" id="get-price" name="nombre" class="form-control" placeholder="Ingrese el precio en dólares">
+            <input type="number" id="get-price" class="form-control" placeholder="Ingrese el precio en dólares">
         </div>
         
         <div class="form-group">
             <label for="">¿Nesecita equipaje?</label>
             <input type="checkbox" id="get-bag" name="bag" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Tipo de cambio</label>
+            <input type="number" id="get-exchange" class="form-control" placeholder="Ingrese el tipo de cambio actual" value="3.99">
         </div>
 
         <button onclick="getDataTravel()">Enviar</button>
